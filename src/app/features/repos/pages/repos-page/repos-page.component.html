@@ -1,0 +1,26 @@
+<app-page>
+  <div class="header-container" slot="header">
+    <h2 class="mr-4">GitHub Repositories</h2>
+    <app-repos-toolbar (applyEvent)="applySearch($event)"></app-repos-toolbar>
+  </div>
+  <div class="content-container" slot="content">
+    <app-table
+      *ngIf="dataSource"
+      [dataSource]="dataSource"
+      [columns]="columns"
+      (onClickRow)="showRepository($event)">
+    </app-table>
+    <div class="empty-state-container" *ngIf="!dataSource && !isLoading">
+      <h3>Please select the filter in the toolbar to start the search</h3>
+    </div>
+    <app-spinner *ngIf="isLoading"></app-spinner>
+  </div>
+  <div class="footer-container" slot="footer">
+    <app-paginator
+      *ngIf="paginatorConfig"
+      [config]="paginatorConfig"
+      (onNext)="changePage('next')"
+      (onPrev)="changePage('prev')">
+    </app-paginator>
+  </div>
+</app-page>

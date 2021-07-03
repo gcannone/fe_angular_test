@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden}
+
+$spacer: 0.5;
+
+@for $i from 0 through 10 {
+
+  .p-#{$i} {
+    padding: $spacer * $i * 1rem !important;
+  }
+  .px-#{$i} {
+    padding-left: $spacer * $i * 1rem !important;
+    padding-right: $spacer * $i * 1rem !important;
+  }
+  .py-#{$i} {
+    padding-top: $spacer * $i * 1rem !important;
+    padding-bottom: $spacer * $i * 1rem !important;
+  }
+  .pt-#{$i} {
+    padding-top: $spacer * $i * 1rem !important;
+  }
+  .pb-#{$i} {
+    padding-bottom: $spacer * $i * 1rem !important;
+  }
+  .pl-#{$i} {
+    padding-left: $spacer * $i * 1rem !important;
+  }
+  .pr-#{$i} {
+    padding-right: $spacer * $i * 1rem !important;
+  }
+  .m-#{$i} {
+    margin: $spacer * $i * 1rem !important;
+  }
+  .mx-#{$i} {
+    margin-left: $spacer * $i * 1rem !important;
+    margin-right: $spacer * $i * 1rem !important;
+  }
+  .my-#{$i} {
+    margin-top: $spacer * $i * 1rem !important;
+    margin-bottom: $spacer * $i * 1rem !important;
+  }
+  .mt-#{$i} {
+    margin-top: $spacer * $i * 1rem !important;
+  }
+  .mb-#{$i} {
+    margin-bottom: $spacer * $i * 1rem !important;
+  }
+  .ml-#{$i} {
+    margin-left: $spacer * $i * 1rem !important;
+  }
+  .mr-#{$i} {
+    margin-right: $spacer * $i * 1rem !important;
+  }
+}

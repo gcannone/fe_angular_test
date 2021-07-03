@@ -1,0 +1,71 @@
+<div class="toolbar-container">
+  <div>
+    <label id="toolbar-radio-group-label">Set filter for search repositories</label>
+    <mat-radio-group
+      aria-labelledby="toolbar-radio-group-label"
+      class="toolbar-radio-group"
+      [(ngModel)]="searchTypeSelected"
+      (change)="radioChange($event.value)">
+      <mat-radio-button class="m-2"
+        *ngFor="let searchType of searchTypes"
+        [value]="searchType">
+        {{searchType}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="ml-4">
+    <form [formGroup]="toolbarForm">
+      <mat-form-field
+        *ngIf="searchTypeSelected === 'Name'" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput
+          type="text"
+          placeholder="Search for repository name"
+          formControlName="name">
+          <mat-error *ngIf="toolbarForm.controls['name'].hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        *ngIf="searchTypeSelected === 'Name'" class="ml-2" appearance="fill">
+        <mat-label>Language</mat-label>
+        <input matInput
+          type="text"
+          placeholder="Language of the code in repo"
+          formControlName="language">
+      </mat-form-field>
+
+      <mat-form-field
+        *ngIf="searchTypeSelected === 'Name'" class="ml-2" appearance="fill">
+        <mat-label>Minimum numbers of stars</mat-label>
+        <input matInput
+          type="number"
+          formControlName="stars">
+      </mat-form-field>
+
+      <mat-form-field
+        *ngIf="searchTypeSelected === 'Issue'" appearance="fill">
+        <mat-label>Issue text</mat-label>
+        <input matInput
+          type="text"
+          formControlName="issue">
+          <mat-error *ngIf="toolbarForm.controls['issue'].hasError('required')">
+            Issue text is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+
+      <button class="ml-2"
+        mat-raised-button
+        type="submit"
+        color="primary"
+        (click)="apply()">
+        Apply
+      </button>
+    </form>
+  </div>
+
+</div>
+
+
+

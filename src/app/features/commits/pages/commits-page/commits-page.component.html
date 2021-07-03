@@ -1,0 +1,22 @@
+<app-page>
+  <div class="header-container" slot="header">
+    <h2 class="mr-4">GitHub Commits for repository {{ repo }}</h2>
+  </div>
+  <div class="content-container" slot="content">
+    <app-table
+      *ngIf="!isLoading"
+      [rowClickable]="false"
+      [dataSource]="dataSource"
+      [columns]="columns">
+    </app-table>
+    <app-spinner *ngIf="isLoading"></app-spinner>
+  </div>
+  <div class="footer-container" slot="footer">
+    <app-paginator
+      *ngIf="paginatorConfig"
+      [config]="paginatorConfig"
+      (onNext)="changePage('next')"
+      (onPrev)="changePage('prev')">
+    </app-paginator>
+  </div>
+</app-page>

@@ -1,0 +1,22 @@
+<div class="paginator-container" *ngIf="config">
+  <div>
+    <span>Total items: {{ config.totalItems }}</span>
+  </div>
+  <button class="ml-2"
+    mat-stroked-button
+    color="primary"
+    [disabled]="config.currentPage === 1"
+    (click)="onPrev.emit()">
+    Prev
+  </button>
+  <div class="ml-2">
+    <span>Page {{ config.currentPage }} of {{ config.totalPages }}</span>
+  </div>
+  <button class="ml-2"
+    mat-stroked-button
+    color="primary"
+    [disabled]="config.currentPage === config.totalPages"
+    (click)="onNext.emit()">
+    Next
+  </button>
+</div>
